@@ -31,10 +31,20 @@ class MysqlDB:
             print(e)
             exit()
 
-    def get_table_data(self):
+    def fetch(self):
         try:
             self.__cur.execute("SELECT * FROM car_shop")
             return self.__cur.fetchall()
         except Error as e:
             print(e)
             exit()
+
+    def update(self, record_id: int, value: list):
+        value.append(record_id)
+        try:
+            self.__cur.execute("UPDATE car_shop SET provider=%s, customer=%s, booking=%s WHERE id=%s", value)
+            self.__conn.commit()
+        except Error as e:
+            print(e)
+            exit()
+

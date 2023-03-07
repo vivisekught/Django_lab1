@@ -1,6 +1,6 @@
 # Sqlite
 PATH_TO_SQLITE_DB = "data/sqlt.db"
-CARS = [
+DATA = [
     ('Ford', 'Ford Service Center', 'Wheel', "19.03.2023", 401345, 4),
     ('BMW', 'BMW Official dealer', 'BMW X1', "01.04.2023", 395040, 1),
     ('Audi', 'Audi Official dealer', 'Audi R4', "13.05.2023", 450037, 2),

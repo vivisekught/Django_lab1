@@ -42,7 +42,17 @@ class PostgresDB:
                 print(e)
                 exit()
 
-    def get_table_data(self):
+    def update(self, record_id: int, value: list):
+        value.append(record_id)
+        try:
+            self.__cursor.execute("UPDATE car_shop SET provider=%s, customer=%s, booking=%s WHERE id=%s", value)
+            self.__conn.commit()
+        except Error as e:
+            print(e)
+            exit()
+
+
+    def fetch(self):
         try:
             self.__cursor.execute(""" SELECT * FROM car_shop """)
             return self.__cursor.fetchall()
